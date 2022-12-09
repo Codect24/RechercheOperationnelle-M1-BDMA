@@ -16,16 +16,16 @@ public class Main {
         Instance f1_3_big = Instance.readFile("./instances/f1_tap_3_400.dat", 6600, 540);
         Instance f1_9_big = Instance.readFile("./instances/f1_tap_9_400.dat", 6600, 540);
 
-        Objectives obj = new Objectives(f4_small);
+        Objectives obj = new Objectives(f1_9_big);
 
-        TAPSolver solver = new TestNaif();
-        List<Integer> solution = solver.solve(f4_small);
+        TAPSolver solver = new TestHMax();
+        List<Integer> solution = solver.solve(f1_9_big);
 
         System.out.println("Interet: " + obj.interest(solution));
         System.out.println("Temps: " + obj.time(solution));
         System.out.println("Distance: " + obj.distance(solution));
 
-        System.out.println("Feasible ? " + isSolutionFeasible(f4_small, solution));
+        System.out.println("Feasible ? " + isSolutionFeasible(f1_9_big, solution));
     }
 
     public static boolean isSolutionFeasible(Instance ist, List<Integer> sol){

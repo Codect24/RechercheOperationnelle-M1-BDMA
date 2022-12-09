@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d1974b-88ba-4260-805d-64bb3329b5fd" name="Changes" comment="subject update">
-      <change afterPath="$PROJECT_DIR$/instances/baselines.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instances/results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instances/tap_10_100.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instances/tap_11_250.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instances/tap_13_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instances/tap_14_400.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instances/tap_15_60.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/alexscode/teaching/TestHMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instances/baselines_results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/instances/baselines_results.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/alexscode/teaching/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alexscode/teaching/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +29,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2GR7LmGkVEVjOrPyX1abE3yUFC9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,10 +49,18 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/home/alex/IdeaProjects/TP-RO-M1-BDMA/instances",
-    "nodejs_package_manager_path": "npm"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.alexscode.teaching" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/instances" />
     </key>
@@ -62,7 +73,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.alexscode.teaching.Main" />
-      <module name="TP-RO-M1-BDMA" />
+      <module name="RechercheOperationnelle-M1-BDMA-RO" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.alexscode.teaching.*" />
@@ -97,6 +108,7 @@
       <workItem from="1668594696102" duration="764000" />
       <workItem from="1668687304159" duration="4000" />
       <workItem from="1669392374763" duration="1573000" />
+      <workItem from="1670603569007" duration="978000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1666343569504</created>
