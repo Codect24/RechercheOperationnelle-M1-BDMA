@@ -3,6 +3,7 @@ package com.alexscode.teaching;
 import com.alexscode.teaching.tap.Instance;
 import com.alexscode.teaching.tap.Objectives;
 import com.alexscode.teaching.tap.TAPSolver;
+import com.alexscode.teaching.utilities.Element;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,30 +14,33 @@ public class TestHMax implements TAPSolver {
     public List<Integer> solve(Instance ist) {
         // ist est une instance de donnée qui contient sa taille, l'interet de chaque queries, le temps de chaque queries, la distance de chaque queries.
 
-        List<Integer> demo = new ArrayList<>();
+        List<Element> demo = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         Objectives obj = new Objectives(ist);
 
-        // on commence par ajouter la query qui maximise l'interet
-        int q_idx = 0;
-
+        // on ajoute les queries dans une liste d'elements
+        for (int i = 0; i < ist.getSize(); i++) {
+            demo.add(new Element(i, Math.pow(ist.getInterest()[i],12)*Math.log(ist.getCosts()[i])));
+        }
+        // on trie la liste d'elements
+        Collections.sort(demo);
+        // on reverse la liste pour avoir les queries dans l'ordre
+        Collections.reverse(demo);
 
         // on ajoute ensuite les queries qui maximisent l'interet et qui respectent les contraintes de temps et de distance
-        while (obj.distance(demo) < ist.getMaxDistance() && obj.time(demo) < ist.getTimeBudget()){
-            double max_ratio = 0;
-            for (int i = 0; i < ist.getSize(); i++) {
-                for (int j = 0; j < ist.getSize(); j++) {
-                    if (Math.pow(ist.getInterest()[i],2)*Math.pow(ist.getDistances()[i][j]*ist.getTimeBudget(),2) > max_ratio && !demo.contains(i)) {
-                        max_ratio = Math.pow(ist.getInterest()[i],2)*Math.pow(ist.getDistances()[i][j]*ist.getTimeBudget(),2);
-                        q_idx = i;
-                    }
+        while (obj.distance(result) < ist.getMaxDistance() && obj.time(result) < ist.getTimeBudget()){
+            for (int i = 0; i < demo.size(); i++) {
+                if (!result.contains(demo.get(i).getIndex())) {
+                    result.add(demo.get(i).getIndex());
+                    break;
                 }
             }
-            demo.add(q_idx);
         }
-        demo.remove(demo.size() - 1);
+
+        result.remove(result.size() - 1);
         // on reverse la liste pour avoir les queries dans l'ordre
         System.out.println("Distance max : "+ ist.getMaxDistance());
         System.out.println("Time max : "+ ist.getTimeBudget());
-        return demo;
+        return result;
     }
 }
