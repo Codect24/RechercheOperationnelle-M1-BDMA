@@ -20,14 +20,19 @@ public class Solution {
     }
 
     public void writeToFile(String path){
-        try(PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(path)))){
-            out.println(nEtu);
-            out.println(instance_id);
-            out.println(timeBudget);
-            out.println(maxDistance);
-            out.println(seq.stream().map(Object::toString).collect(Collectors.joining(",")));
-        } catch (IOException e){
-            e.printStackTrace(System.err);
+        // Create file
+        try {
+            FileWriter fstream = new FileWriter
+                    (path);
+            BufferedWriter out = new BufferedWriter(fstream
+            );
+            out.write(instance_id + " " + nEtu + " " + timeBudget + " " + maxDistance + " " + seq.size() + " " + seq.stream().map(Object::toString).collect(Collectors.joining(" ")));
+            //Close the output stream
+            out.close();
+        } catch (Exception e) {//Catch exception if any
+            System.err.println("Error: " + e.getMessage());
         }
+    }
+}
     }
 }
