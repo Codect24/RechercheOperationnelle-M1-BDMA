@@ -34,9 +34,11 @@ public class TestHTime implements TAPSolver {
             demo.add(q_idx);
         }
         demo.remove(demo.size() - 1);
-        // on reverse la liste pour avoir les queries dans l'ordre
-        System.out.println("Distance max : "+ ist.getMaxDistance());
-        System.out.println("Time max : "+ ist.getTimeBudget());
-        return demo;
+    return demo;
+    }
+
+    @Override
+    public List<Integer> solve(Instance instance, int i, int j) {
+        return null;
     }
 }

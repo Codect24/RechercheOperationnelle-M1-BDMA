@@ -20,9 +20,9 @@ public class TestHMax implements TAPSolver {
 
         // on ajoute les queries dans une liste d'elements
         for (int i = 0; i < ist.getSize(); i++) {
-            demo.add(new Element(i, Math.pow(ist.getInterest()[i],12)*Math.log(ist.getCosts()[i])));
+            demo.add(new Element(i, ist.getInterest()[i]));
         }
-        // on trie la liste d'elements
+        // on trie la liste d'elements par ordre decroissant de ratio
         Collections.sort(demo);
         // on reverse la liste pour avoir les queries dans l'ordre
         Collections.reverse(demo);
@@ -38,9 +38,12 @@ public class TestHMax implements TAPSolver {
         }
 
         result.remove(result.size() - 1);
-        // on reverse la liste pour avoir les queries dans l'ordre
-        System.out.println("Distance max : "+ ist.getMaxDistance());
-        System.out.println("Time max : "+ ist.getTimeBudget());
+        // on test des swaps entre elements de la liste pour maximiser l'interet
         return result;
+    }
+
+    @Override
+    public List<Integer> solve(Instance instance, int i, int j) {
+        return null;
     }
 }

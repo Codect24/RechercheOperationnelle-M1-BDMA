@@ -39,4 +39,9 @@ public class TestHSimple implements TAPSolver {
         System.out.println("Time max : "+ ist.getTimeBudget());
         return demo;
     }
+
+    @Override
+    public List<Integer> solve(Instance instance, int i, int j) {
+        return null;
+    }
 }

@@ -2,13 +2,10 @@ package com.alexscode.teaching;
 
 import com.alexscode.teaching.tap.Instance;
 import com.alexscode.teaching.tap.Objectives;
-import com.alexscode.teaching.tap.Solution;
 import com.alexscode.teaching.tap.TAPSolver;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -20,25 +17,25 @@ public class Main {
         TAPSolver solverSimulatedAnnealing = new TestSimulatedAnnealing();
 
         // Add to a list of solvers
-        List<TAPSolver> solvers = List.of(solver, solverMax, solverSimple, solverNaif, solverTime, solverSimulatedAnnealing);
+        List<TAPSolver> solvers = List.of(solverMax);
 
         Instance f4_small = Instance.readFile("./instances/f4_tap_0_20.dat", 330, 27);
         Instance f4_1_big = Instance.readFile("./instances/f4_tap_1_400.dat", 6600, 540);
         Instance f4_4_big = Instance.readFile("./instances/f4_tap_4_400.dat", 6600, 540);
         Instance f1_3_big = Instance.readFile("./instances/f1_tap_3_400.dat", 6600, 540);
         Instance f1_9_big = Instance.readFile("./instances/f1_tap_9_400.dat", 6600, 540);
-        Instance tap_10_medium = Instance.readFile("./instances/tap_10_100.dat", 1650, 135);
-        Instance tap_11_big = Instance.readFile("./instances/tap_11_250.dat", 4125, 338);
-        Instance tap_13_midium = Instance.readFile("./instances/tap_13_150.dat", 4475, 203);
+        Instance tap_10_medium = Instance.readFile("./instances/tap_10_100.dat", 1200, 150);
+        Instance tap_11_big = Instance.readFile("./instances/tap_11_250.dat", 1200, 250);
+        Instance tap_13_midium = Instance.readFile("./instances/tap_13_150.dat", 1200, 150);
         Instance tap_14_big = Instance.readFile("./instances/tap_14_400.dat", 6600, 540);
-        Instance tap_15_small = Instance.readFile("./instances/tap_15_60.dat", 990, 81);
+        Instance tap_15_small = Instance.readFile("./instances/tap_15_60.dat", 330, 27);
         // Add to a list of instances
         List<Instance> instances = List.of(f4_small, f4_1_big, f4_4_big, f1_3_big, f1_9_big, tap_10_medium, tap_11_big, tap_13_midium, tap_14_big, tap_15_small);
 
         // ----------------- Selections des parametres -----------------
         // Pour chaque instance on va faire tourner chaque solveur
         // On va stocker les resultats dans une liste de liste
-        Map<Instance, List<List<Double>>> results = new java.util.HashMap<>();
+        Map<Instance, List<List<Double>>> results = new HashMap<>();
         for (Instance instance : instances) {
             System.out.println("--------------- Instance : " + instance.getFileUsed()+ " ---------------");
             for (TAPSolver solverInstance : solvers) {
@@ -53,9 +50,9 @@ public class Main {
 //                System.out.println("--------------------------------------------------");
 //                System.out.println();
                 results.putIfAbsent(instance, new ArrayList<>());
-                results.get(instance).add(List.of(obj.distance(solution), obj.time(solution), obj.interest(solution)));
-                Solution sol = new Solution(instance, solution, 21903169);
-                sol.writeToFile("./solutions/result.sol");
+                results.get(instance).add(List.of(obj.time(solution), obj.distance(solution), obj.interest(solution)));
+//                Solution sol = new Solution(instance, solution, 21903169);
+//                sol.writeToFile("./solutions/result.sol");
             }
             System.out.println();
         }
@@ -64,12 +61,9 @@ public class Main {
         System.out.println("Instance\tSolver\tDistance\tTime\tInterest");
         for (Instance instance : results.keySet()) {
             for (int i = 0; i < results.get(instance).size(); i++) {
-                System.out.println(instance.getFileUsed() + "\t" + solvers.get(i).getClass().getSimpleName() + "\t" + results.get(instance).get(i).get(0) + "\t" + results.get(instance).get(i).get(1) + "\t" + results.get(instance).get(i).get(2));
+                System.out.println(instance.getFileUsed() + "\t\t" + solvers.get(i).getClass().getSimpleName() + "\t" + results.get(instance).get(i).get(0) + "\t" + results.get(instance).get(i).get(1) + "\t" + results.get(instance).get(i).get(2));
             }
         }
-        // Write the results in a csv file
-
-
     }
 
     public static boolean isSolutionFeasible(Instance ist, List<Integer> sol){

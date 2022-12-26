@@ -20,4 +20,9 @@ public class TestNaif implements TAPSolver {
         }
         return demo.subList(0, demo.size() - 1);
     }
+
+    @Override
+    public List<Integer> solve(Instance instance, int i, int j) {
+        return null;
+    }
 }
