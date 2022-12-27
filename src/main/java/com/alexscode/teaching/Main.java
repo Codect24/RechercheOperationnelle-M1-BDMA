@@ -17,9 +17,12 @@ public class Main {
         TAPSolver solverSimulatedAnnealing = new TestSimulatedAnnealing();
         TAPSolver solverInterest4Distance = new TestHSortInterest4Distance();
         TAPSolver solverInterest4Cost = new TestHSortInterest4Cost();
+        TAPSolver solverInterest4Distance5 = new TestHSortInterest4DistanceTestOpt();
+        TAPSolver solverCost4Distance5 = new TestHSortCost4DistanceTestOpt();
+        TAPSolver solverInterest4DistanceUltimate = new TestHSortInterest4DistanceUltimate();
 
         // Add to a list of solvers
-        List<TAPSolver> solvers = List.of(solverInterest4Distance, solverInterest4Cost, solverMax, solverSimple, solverNaif, solverTime, solverSimulatedAnnealing, solver);
+        List<TAPSolver> solvers = List.of(solverCost4Distance5, solverInterest4DistanceUltimate, solverInterest4Distance5, solverInterest4Distance, solverInterest4Cost, solverTime, solverSimple, solverMax, solver, solverNaif, solverSimulatedAnnealing);
 
         Instance f4_small = Instance.readFile("./instances/f4_tap_0_20.dat", 330, 27);
         Instance f4_1_big = Instance.readFile("./instances/f4_tap_1_400.dat", 6600, 540);
@@ -32,7 +35,7 @@ public class Main {
         Instance tap_14_big = Instance.readFile("./instances/tap_14_400.dat", 6600, 540);
         Instance tap_15_small = Instance.readFile("./instances/tap_15_60.dat", 330, 27);
         // Add to a list of instances
-        List<Instance> instances = List.of(f4_1_big,f4_4_big,f1_3_big,f1_9_big,tap_10_medium,tap_11_big,tap_13_medium,tap_14_big,tap_15_small,f4_small);
+        List<Instance> instances = List.of(f4_4_big, f4_1_big, f1_3_big, f1_9_big, tap_10_medium, tap_11_big, tap_13_medium, tap_14_big, tap_15_small, f4_small);
 
         // ----------------- Selections des parametres -----------------
         // Pour chaque instance on va faire tourner chaque solveur
