@@ -47,39 +47,8 @@ public class TestHSortInterest4Distance implements TAPSolver {
         // on ajoute ensuite les queries qui maximisent l'interet et qui respectent les contraintes de temps et de distance
         while (obj.distance(result) <= ist.getMaxDistance() && obj.time(result) <= ist.getTimeBudget()){
             if (ist.getDistances()[demo.get(0).getIndex()][demo.get(1).getIndex()] > ist.getDistances()[demo.get(1).getIndex()][demo.get(2).getIndex()]){
-                if (ist.getDistances()[demo.get(1).getIndex()][demo.get(2).getIndex()] > ist.getDistances()[demo.get(2).getIndex()][demo.get(3).getIndex()]){
-                    if (ist.getDistances()[demo.get(2).getIndex()][demo.get(3).getIndex()] > ist.getDistances()[demo.get(3).getIndex()][demo.get(4).getIndex()]){
-                        if (!result.contains(demo.get(2).getIndex()) && !result.contains(demo.get(3).getIndex())){
-                            result.add(demo.get(2).getIndex());
-                            result.add(demo.get(3).getIndex());
-                            demo.remove(2);
-                            demo.remove(2);
-                        }
-                    }
-                    else {
-                        if (!result.contains(demo.get(3).getIndex()) && !result.contains(demo.get(4).getIndex())){
-                            result.add(demo.get(3).getIndex());
-                            result.add(demo.get(4).getIndex());
-                            demo.remove(3);
-                            demo.remove(3);
-                        }
-                    }
-                } else {
-                    if (!result.contains(demo.get(1).getIndex()) && !result.contains(demo.get(2).getIndex())){
-                        result.add(demo.get(1).getIndex());
-                        result.add(demo.get(2).getIndex());
-                        demo.remove(1);
-                        demo.remove(1);
-                    }
-                }
-            } else {
-                if (!result.contains(demo.get(0).getIndex()) && !result.contains(demo.get(1).getIndex())){
-                    result.add(demo.get(0).getIndex());
-                    result.add(demo.get(1).getIndex());
-                    demo.remove(0);
-                    demo.remove(0);
-                }
-            }
+                checkIsExist(demo, result, 1, 2);
+            } else checkIsExist(demo, result, 0, 1);
         }
         result.remove(result.size() - 1);
         result.remove(result.size() - 1);
@@ -91,6 +60,15 @@ public class TestHSortInterest4Distance implements TAPSolver {
     @Override
     public List<Integer> solve(Instance instance, int i, int j) {
         return null;
+    }
+
+    static void checkIsExist(List<Element> demo, List<Integer> result, int low, int high) {
+        if (!result.contains(demo.get(low).getIndex()) && !result.contains(demo.get(high).getIndex())) {
+            result.add(demo.get(low).getIndex());
+            result.add(demo.get(high).getIndex());
+            demo.remove(low);
+            demo.remove(low);
+        }
     }
 }
 

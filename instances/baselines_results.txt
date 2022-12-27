@@ -2,12 +2,12 @@ instance;objective_value
 f1_tap_3_400.dat;88.01274913739763 <- Fait en 89.49640145401584 - Ok - TestHSortInterest4Distance
 f1_tap_9_400.dat;87.00905651533381 <- Fait en 87.757272081853 - Ok - TestHSortInterest4Distance
 f4_tap_0_20.dat;6.726372375898634 <- Fait en 6.75299810900869 - Ok - TestHMax20
-f4_tap_1_400.dat;92.10836201670493 <- Fait en 103.08929966044656 - Ok - TestHSortInterest4Distance
+f4_tap_1_400.dat;92.10836201670493 <- Fait en 105.95224303509279 - Ok - TestHSortInterest4DistanceTestOpt
 f4_tap_4_400.dat;88.77230438288416 <- Fait en 101.57682719461955 -  Ok - TestHSortInterest4Distance
 tap_10_100.dat;27.963428762882284 <- Fait en 31.31602940618364 - Ok - TestHTime
 tap_11_250.dat;37.31578825082006 <- Fait en 36.668941995429805 - Pas Ok - TestHMax20
 tap_13_150.dat;28.430957770292398 <- Fait en 30.04815235031152 - Ok - TestHSortInterest4Distance
-tap_14_400.dat;96.19798177088308 <- Fait en 94.8459593829859 - Pas Ok - TestHSimple
+tap_14_400.dat;96.19798177088308 <- Fait en 100.99347375548349 - Ok - TestHSortInterest4DistanceTestOpt
 tap_15_60.dat;6.773680796549568 <- Fait en 7.697601721949086 - Ok - TestHTime
 
 Nos solvers : TestHMax20, TestHMax, TestHSimple, TestNaif, TestHTime, TestSimulatedAnnealing, TestHSortInterest4Distance, TestHSortInterest4Cost
