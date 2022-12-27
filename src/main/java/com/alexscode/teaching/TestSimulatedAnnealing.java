@@ -16,7 +16,7 @@ public class TestSimulatedAnnealing implements TAPSolver {
         Objectives obj = new Objectives(ist);
         double temperature = 1000;
         double coolingFactor = 0.995;
-        List<Integer> current = new TestNaif().solve(ist);
+        List<Integer> current = new TestHSimple().solve(ist);
         List<Integer> best = current;
 
         for (double t = temperature; t > 1; t *= coolingFactor) {
@@ -38,9 +38,6 @@ public class TestSimulatedAnnealing implements TAPSolver {
                 best = current;
             }
         }
-
-        System.out.println("Final tour length: " + obj.time(best));
-        System.out.println("Tour: " + best);
 
         return best;
     }

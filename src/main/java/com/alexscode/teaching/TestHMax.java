@@ -22,7 +22,7 @@ public class TestHMax implements TAPSolver {
         for (int i = 0; i < ist.getSize(); i++) {
             demo.add(new Element(i, ist.getInterest()[i]));
         }
-        // on trie la liste d'elements par ordre decroissant de ratio
+        // on trie la liste d'elements
         Collections.sort(demo);
         // on reverse la liste pour avoir les queries dans l'ordre
         Collections.reverse(demo);
@@ -38,7 +38,6 @@ public class TestHMax implements TAPSolver {
         }
 
         result.remove(result.size() - 1);
-        // on test des swaps entre elements de la liste pour maximiser l'interet
         return result;
     }
 

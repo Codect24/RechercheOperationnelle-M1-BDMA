@@ -21,7 +21,7 @@ public class TestHMax20 implements TAPSolver {
 
 
         // on ajoute ensuite les queries qui maximisent l'interet et qui respectent les contraintes de temps et de distance
-        while (obj.distance(demo) < ist.getMaxDistance() && obj.time(demo) < ist.getTimeBudget()){
+        while (obj.distance(demo) <= ist.getMaxDistance() && obj.time(demo) <= ist.getTimeBudget()){
             double max_ratio = 0;
             for (int i = 0; i < ist.getSize(); i++) {
                 for (int j = 0; j < ist.getSize(); j++) {
@@ -35,9 +35,6 @@ public class TestHMax20 implements TAPSolver {
             demo.add(q_idx);
         }
         demo.remove(demo.size() - 1);
-        // on reverse la liste pour avoir les queries dans l'ordre
-        System.out.println("Distance max : "+ ist.getMaxDistance());
-        System.out.println("Time max : "+ ist.getTimeBudget());
         return demo;
     }
 

@@ -20,7 +20,7 @@ public class TestHTime implements TAPSolver {
 
 
         // on ajoute ensuite les queries qui maximisent l'interet et qui respectent les contraintes de temps et de distance
-        while (obj.distance(demo) < ist.getMaxDistance() && obj.time(demo) < ist.getTimeBudget()){
+        while (obj.distance(demo) <= ist.getMaxDistance() && obj.time(demo) <= ist.getTimeBudget()){
             double max_ratio = 0;
             for (int i = 0; i < ist.getSize(); i++) {
                 for (int j = 0; j < ist.getSize(); j++) {

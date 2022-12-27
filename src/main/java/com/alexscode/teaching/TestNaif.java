@@ -15,7 +15,7 @@ public class TestNaif implements TAPSolver {
 
         int q_idx = 0;
 
-        while (obj.distance(demo) < ist.getMaxDistance() && obj.time(demo) < ist.getTimeBudget()){
+        while (obj.distance(demo) <= ist.getMaxDistance() && obj.time(demo) <= ist.getTimeBudget()){
             demo.add(q_idx++);
         }
         return demo.subList(0, demo.size() - 1);
