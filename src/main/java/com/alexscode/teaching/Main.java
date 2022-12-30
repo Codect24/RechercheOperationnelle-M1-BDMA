@@ -9,6 +9,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        // Compteur de temps d'execution
+        long startTime = System.nanoTime();
         TAPSolver solver = new TestHMax20();
         TAPSolver solverMax = new TestHMax();
         TAPSolver solverSimple = new TestHSimple();
@@ -20,9 +23,11 @@ public class Main {
         TAPSolver solverInterest4Distance5 = new TestHSortInterest4DistanceTestOpt();
         TAPSolver solverCost4Distance5 = new TestHSortCost4DistanceTestOpt();
         TAPSolver solverInterest4DistanceUltimate = new TestHSortInterest4DistanceUltimate();
+        TAPSolver solverInterest4DistanceUltimateEdit = new TestHSortInterest4DistanceUltimateEdit();
+        TAPSolver solverInterest4DistanceUltimateLH = new TestHSortInterest4DistanceUltimateLastHope();
 
         // Add to a list of solvers
-        List<TAPSolver> solvers = List.of(solverCost4Distance5, solverInterest4DistanceUltimate, solverInterest4Distance5, solverInterest4Distance, solverInterest4Cost, solverTime, solverSimple, solverMax, solver, solverNaif, solverSimulatedAnnealing);
+        List<TAPSolver> solvers = List.of(solverInterest4DistanceUltimateLH, solverCost4Distance5, solverInterest4DistanceUltimate, solverInterest4Distance5, solverInterest4Distance, solverInterest4Cost, solverTime, solverSimple, solverMax, solver, solverNaif, solverSimulatedAnnealing, solverInterest4DistanceUltimateEdit);
 
         Instance f4_small = Instance.readFile("./instances/f4_tap_0_20.dat", 330, 27);
         Instance f4_1_big = Instance.readFile("./instances/f4_tap_1_400.dat", 6600, 540);
@@ -74,6 +79,10 @@ public class Main {
             System.out.println("Best interest : " + results.get(instance).get(results.get(instance).size() - 1));
             System.out.println();
         }
+        // Compteur de temps d'execution
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("Temps d'execution : " + duration / 1000000000 + " secondes");
     }
 
     public static boolean isSolutionFeasible(Instance ist, List<Integer> sol){

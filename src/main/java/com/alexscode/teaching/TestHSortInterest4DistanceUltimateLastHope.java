@@ -7,9 +7,9 @@ import com.alexscode.teaching.utilities.Element;
 
 import java.util.*;
 
-public class TestHSortInterest4DistanceUltimate implements TAPSolver {
-    @Override
-    public List<Integer> solve(Instance ist) {
+public class TestHSortInterest4DistanceUltimateLastHope implements TAPSolver {
+
+    public List<Integer> solve(Instance ist, int last, int hope) {
         // ist est une instance de donnée qui contient sa taille, l'interet de chaque queries, le temps de chaque queries, la distance de chaque queries.
 
         List<Element> demo = new ArrayList<>();
@@ -51,7 +51,7 @@ public class TestHSortInterest4DistanceUltimate implements TAPSolver {
             // On prend l'index de la query qui maximise l'interet
             if (list.size() > 1) {
                 for (int j = 0; j < list.size(); j++) {
-                    if (ist.getInterest()[list.get(j)] >= ist.getInterest()[index_min]) {
+                    if (Math.pow(ist.getInterest()[list.get(j)],hope)/Math.pow(ist.getCosts()[list.get(j)],last) >= Math.pow(ist.getInterest()[index_min],hope)/ Math.pow(ist.getCosts()[index_min],last)) {
                         index_min = list.get(j);
                     }
                 }
@@ -73,15 +73,26 @@ public class TestHSortInterest4DistanceUltimate implements TAPSolver {
         result.remove(result.size() - 1);
         return result;
     }
-
-    static void checkIsExist(List<Element> demo, List<Integer> result, int low, int high) {
-        if (!result.contains(demo.get(low).getIndex()) && !result.contains(demo.get(high).getIndex())) {
-            result.add(demo.get(low).getIndex());
-            result.add(demo.get(high).getIndex());
-            demo.remove(low);
-            demo.remove(low);
+    @Override
+    public List<Integer> solve(Instance instance) {
+        // liste de liste de resultat
+        List<List<Integer>> list = new ArrayList<>();
+        // index de la liste de resultat qui maximise l'interet
+        int index_max = 0;
+        // appel de la fonction solve avec les differents parametres allant de 0 a 20 de manniere insyncrone
+        for (int i = 0; i < 10; i = i+2) {
+            for (int j = 0; j < 20; j=j+2) {
+                list.add(solve(instance, i, j));
+            }
         }
+        // Calcul la valeur de l'interet de chaque query
+        Objectives obj = new Objectives(instance);
+        for (int i = 0; i < list.size(); i++) {
+            if (obj.interest(list.get(i)) > obj.interest(list.get(index_max))) {
+                index_max = i;
+            }
+        }
+        return list.get(index_max);
     }
-
 }
 

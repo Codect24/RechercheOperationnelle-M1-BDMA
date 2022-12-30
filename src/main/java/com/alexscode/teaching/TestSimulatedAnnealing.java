@@ -42,11 +42,6 @@ public class TestSimulatedAnnealing implements TAPSolver {
         return best;
     }
 
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
-
     public static double probability(double f1, double f2, double temp) {
         if (f2 < f1) return 1;
         return Math.exp((f1 - f2) / temp);

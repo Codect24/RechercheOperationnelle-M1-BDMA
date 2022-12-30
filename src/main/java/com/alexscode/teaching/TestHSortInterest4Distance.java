@@ -57,11 +57,6 @@ public class TestHSortInterest4Distance implements TAPSolver {
         return result;
     }
 
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
-
     static void checkIsExist(List<Element> demo, List<Integer> result, int low, int high) {
         if (!result.contains(demo.get(low).getIndex()) && !result.contains(demo.get(high).getIndex())) {
             result.add(demo.get(low).getIndex());

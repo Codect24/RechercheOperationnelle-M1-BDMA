@@ -37,8 +37,5 @@ public class TestHSimple implements TAPSolver {
         return demo;
     }
 
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
+
 }

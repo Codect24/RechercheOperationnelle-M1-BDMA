@@ -69,8 +69,4 @@ public class TestHSortInterest4Cost implements TAPSolver {
         return result;
     }
 
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
 }

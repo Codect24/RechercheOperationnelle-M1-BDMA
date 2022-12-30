@@ -54,9 +54,5 @@ public class TestHSortCost4DistanceTestOpt implements TAPSolver {
         }
     }
 
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
 }
 

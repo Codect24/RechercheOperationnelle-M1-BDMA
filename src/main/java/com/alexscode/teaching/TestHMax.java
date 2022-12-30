@@ -40,9 +40,4 @@ public class TestHMax implements TAPSolver {
         result.remove(result.size() - 1);
         return result;
     }
-
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
 }

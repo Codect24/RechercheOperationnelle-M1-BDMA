@@ -83,10 +83,5 @@ public class TestHSortInterest4DistanceUltimateEdit implements TAPSolver {
         }
     }
 
-    @Override
-    public List<Integer> solve(Instance instance, int i, int j) {
-        return null;
-    }
-
 }
 
